@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Enye</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <div class="wrapper" id="wrapper">
+      <div class="inner-wrapper">
+        <header>Enye Front-end Challenge</header>
+        <main>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+                <th>Geolocation</th>
+                <th>Credit Card Info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="profile in profileGroups[page]" :key="profile.UserName">
+                <td>{{profile.FirstName}} {{profile.LastName}}</td>
+                <td>{{profile.Email}}</td>
+                <td>{{profile.PhoneNumber}}</td>
+                <td>{{profile.Gender}}</td>
+                <td>
+                  <span>{{profile.Latitude}}</span>
+                  <span>{{profile.Longitude}}</span>
+                </td>
+                <td>Credit Card Info</td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="./js/app.js"></script>
-</body>
+    <script src="./js/vue.js"></script>
+  </body>
 </html>

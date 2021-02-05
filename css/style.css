@@ -3,29 +3,22 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   box-sizing: border-box;
   background-color: #a6cceb;
-  overflow: hidden;
-
-  .wrapper {
+  overflow: hidden; }
+  body .wrapper {
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    main {
+    justify-content: center; }
+    body .wrapper main {
       padding: 40px;
       width: 1024px;
-      background-color: #ffffff;
-    }
-  }
-}
+      background-color: #ffffff; }
