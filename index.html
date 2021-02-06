@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Enye</title>
   </head>
   <body>
     <div class="wrapper" id="wrapper">
       <div class="inner-wrapper">
-        <header>Enye Front-end Challenge</header>
+        <header><div class="header">Enye Front-end Challenge</div></header>
         <main>
           <table>
             <thead>
@@ -24,18 +26,25 @@
             </thead>
             <tbody>
               <tr v-for="profile in profileGroups[page]" :key="profile.UserName">
-                <td>{{profile.FirstName}} {{profile.LastName}}</td>
-                <td>{{profile.Email}}</td>
-                <td>{{profile.PhoneNumber}}</td>
-                <td>{{profile.Gender}}</td>
+                <td><span>{{profile.FirstName}} {{profile.LastName}}</span></td>
+                <td><span>{{profile.Email}}</span></td>
+                <td><span>{{profile.PhoneNumber}}</span></td>
+                <td><span :class="profile.Gender.toLowerCase()">{{genderFormat(profile.Gender)}}</span></td>
                 <td>
-                  <span>{{profile.Latitude}}</span>
-                  <span>{{profile.Longitude}}</span>
+                  <div class="geolocation-data">
+                    <span class="geolocation">{{profile.Latitude}}</span>
+                    <span class="geolocation">{{profile.Longitude}}</span>
+                  </div>
                 </td>
                 <td>Credit Card Info</td>
               </tr>
             </tbody>
           </table>
+          <div class="pagination" v-show="!onlyPage">
+            <span class="prev" v-on="!firstPage ? { click: prevPage } : {}" :class="{ 'inactive': firstPage}">Prev</span>
+            <span class="page-number" @click="page = index" :class="{'active': page==index}" v-for="(pages,index) in profileGroups" :key="index">{{index+ 1}}</span>
+            <span class="prev" v-on="!lastPage ? { click: nextPage } : {}" :class="{'inactive': lastPage}">Next</span>
+          </div>
         </main>
       </div>
     </div>
